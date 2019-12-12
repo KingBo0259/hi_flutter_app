@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import '../../widget/navigator_process_widget.dart';
 
 class OneMorePage extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _OneMorePage extends State<OneMorePage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(middle: Text("one more"),),
+      navigationBar: CupertinoNavigationBar(middle: NavigatorProcessWidget(),),
       child: createBody(),
     );
   }
@@ -68,7 +69,8 @@ class DemoCellWidget extends StatelessWidget {
   List<Widget> createView(int number) {
     var array = <Widget>[];
     for (int i = number; i > 0; i--) {
-      array.add(Container(
+      array.add(
+          Container(
           width: 64,
           height: 33,
           decoration: new BoxDecoration(
