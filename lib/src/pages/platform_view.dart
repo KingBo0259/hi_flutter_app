@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/cupertino.dart';
 
 class PlatformView extends StatefulWidget {
   @override
-  createState() =>  _PlatformView();
+  createState() => _PlatformView();
 }
-
 
 class _PlatformView extends State<StatefulWidget> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(title: Text("调用嵌入native View"),),
-      body: Text('请嵌入iOS View 请使用插件实现。。。谢谢'),
+    return CupertinoPageScaffold(
+     navigationBar: CupertinoNavigationBar(middle: Text("hello"),),
+      child: Center(child: Text("请使用platform View 插件进行开发",),),
     );
   }
-
 }

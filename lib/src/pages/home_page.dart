@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -18,8 +19,49 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget createCupertinoBody() {
+    return CupertinoPageScaffold(
+        navigationBar: CupertinoNavigationBar(
+          middle: Text(widget.title),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'You have pushed the button this many times:',
+              ),
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.display1,
+              ),
+              CupertinoButton(
+                child: Text("自动+1"),
+                color: Colors.blue,
+                onPressed: _incrementCounter,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              CupertinoButton.filled(
+                  child: Text("flutter 集成 native View"),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "platform_view");
+                  }),
+              SizedBox(
+                height: 10,
+              ),
+              CupertinoButton.filled(
+                  child: Text("OneMore"),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "oneMore");
+                  }),
+            ],
+          ),
+        ));
+  }
+
+  Widget createMaterialBody() {
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -43,9 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 icon: Icon(Icons.exposure_plus_1),
                 label: Text("flutter 集成 native View")),
-            RaisedButton.icon(onPressed: (){
-              Navigator.pushNamed(context, "demo1_1page");
-            }, icon: Icon(Icons.exposure_plus_2), label: Text("Demo1"))
+            RaisedButton.icon(
+                onPressed: () {
+                  Navigator.pushNamed(context, "demo1_1page");
+                },
+                icon: Icon(Icons.exposure_plus_2),
+                label: Text("Demo1"))
           ],
         ),
       ),
@@ -55,5 +100,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return createCupertinoBody();
   }
 }

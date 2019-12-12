@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class OneMorePage extends StatefulWidget {
   @override
@@ -10,39 +11,40 @@ class OneMorePage extends StatefulWidget {
 class _OneMorePage extends State<OneMorePage> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("one more"),
-      ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            DemoCellWidget(
-              number: 4,
-            ),
-            SizedBox(
-              width: 8,
-            ),
-            DemoCellWidget(
-              number: 5,
-            ),
-            SizedBox(
-              width: 8,
-            ),
-            DemoCellWidget(
-              number: 6,
-            ),
-            SizedBox(
-              width: 8,
-            ),
-            DemoCellWidget(
-              number: 7,
-            ),
-          ],
-        ),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(middle: Text("one more"),),
+      child: createBody(),
+    );
+  }
+
+  Widget createBody() {
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          DemoCellWidget(
+            number: 4,
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          DemoCellWidget(
+            number: 5,
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          DemoCellWidget(
+            number: 6,
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          DemoCellWidget(
+            number: 7,
+          ),
+        ],
       ),
     );
   }
