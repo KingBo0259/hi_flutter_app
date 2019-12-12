@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
       title: 'kingo Flutter Demo',
       theme: CupertinoThemeData(
           primaryColor: Colors.blue,
-          barBackgroundColor: Colors.blue,
+          barBackgroundColor: Color.fromRGBO(246, 179, 73, 1),
           textTheme: CupertinoTextThemeData(
               navTitleTextStyle: TextStyle(color: Colors.white, fontSize: 18),
               navActionTextStyle: TextStyle(color: Colors.white)),
-          scaffoldBackgroundColor: Colors.amber),
+          scaffoldBackgroundColor: Color.fromARGB(255, 251, 237, 176)),
       home: MyHomePage(title: 'Flutter KingBo Home Page'),
       routes: Router.routers,
     );
