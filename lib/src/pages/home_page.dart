@@ -43,6 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 icon: Icon(Icons.exposure_plus_1),
                 label: Text("flutter 集成 native View")),
+            RaisedButton.icon(onPressed: (){
+              Navigator.pushNamed(context, "demo1_1page");
+            }, icon: Icon(Icons.exposure_plus_2), label: Text("Demo1"))
           ],
         ),
       ),
