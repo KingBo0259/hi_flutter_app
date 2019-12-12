@@ -56,6 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, "oneMore");
                   }),
+              SizedBox(
+                height: 10,
+              ),
+              CupertinoButton.filled(
+                  child: Text("FindPictureTemplatePage"),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "FindPictureTemplatePage");
+                  })
             ],
           ),
         ));
