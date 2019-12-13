@@ -9,6 +9,12 @@ class FindPictureTemplatePage extends StatefulWidget {
 }
 
 class _FindPictureTemplatePage extends State<FindPictureTemplatePage> {
+
+  GlobalKey<FindPictureCardState> card1 =  GlobalKey<FindPictureCardState>();
+  GlobalKey<FindPictureCardState> card2 =  GlobalKey<FindPictureCardState>();
+  GlobalKey<FindPictureCardState> card3 =  GlobalKey<FindPictureCardState>();
+  GlobalKey<FindPictureCardState> card4 =  GlobalKey<FindPictureCardState>();
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -22,24 +28,38 @@ class _FindPictureTemplatePage extends State<FindPictureTemplatePage> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-              FindPictureCardWidget(),
-              SizedBox(width: 10,),
-              FindPictureCardWidget()
-            ],),
-            SizedBox(height: 10,),
+                FindPictureCardWidget(key: card1,),
+                SizedBox(
+                  width: 10,
+                ),
+                FindPictureCardWidget(key: card2,)
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisSize: MainAxisSize.min,
-
               children: <Widget>[
-              FindPictureCardWidget(),
-              SizedBox(width: 10,),
-              FindPictureCardWidget()
-            ],),
+                FindPictureCardWidget(key: card3,),
+                SizedBox(
+                  width: 10,
+                ),
+                FindPictureCardWidget(key: card4,)
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            CupertinoButton.filled(child: Text("翻转"), onPressed: () {
+              card1.currentState.toggleCard();
+              card2.currentState.toggleCard();
+              card3.currentState.toggleCard();
+              card4.currentState.toggleCard();
+            })
           ],
         ),
       ),
-
     );
   }
 }
-

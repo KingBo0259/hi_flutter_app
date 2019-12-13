@@ -3,11 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flip_card/flip_card.dart';
 
 class FindPictureCardWidget extends StatefulWidget {
+  FindPictureCardWidget({Key key}):super(key:key);
   @override
-  State<StatefulWidget> createState() => _FindPictureCardWidget();
+  State<StatefulWidget> createState() => FindPictureCardState();
 }
 
-class _FindPictureCardWidget extends State<FindPictureCardWidget> {
+class FindPictureCardState extends State<FindPictureCardWidget> {
   GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
 
   @override
@@ -17,9 +18,13 @@ class _FindPictureCardWidget extends State<FindPictureCardWidget> {
     startAnimation();
   }
 
+  void toggleCard(){
+    cardKey.currentState.toggleCard();
+  }
+
   startAnimation() {
     Future.delayed(Duration(milliseconds: 300), () {
-      cardKey.currentState.toggleCard();
+      toggleCard();
     });
   }
 
