@@ -12,7 +12,7 @@ class SignaturePainterWidget extends CustomPainter {
       ..color = lineColor
       ..strokeCap = StrokeCap.round
       ..isAntiAlias = true
-      ..strokeWidth = 12.0
+      ..strokeWidth = 18.0
 
       ..strokeJoin = StrokeJoin.bevel;
 
