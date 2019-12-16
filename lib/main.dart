@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
+      debugShowCheckedModeBanner: true,
       title: 'kingo Flutter Demo',
       theme: CupertinoThemeData(
           primaryColor: Colors.blue,
