@@ -14,6 +14,8 @@ class _HandWritePage extends State<HandWritePage> {
 
   Size paindSize = Size(300, 300);
 
+  int  value = 0;
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -69,10 +71,10 @@ class _HandWritePage extends State<HandWritePage> {
                     },
                     onPanEnd: (DragEndDetails details) => _points.add(null),
                     child: Container(
+                      decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.all(Radius.circular(12))),
                       width: paindSize.width,
                       height: paindSize.height,
-                      color: Colors.deepOrange,
-                    ),
+                     ),
                   ),
                   CustomPaint(
                     painter: SignaturePainterWidget(_points,
@@ -80,7 +82,12 @@ class _HandWritePage extends State<HandWritePage> {
                   )
                 ],
               ),
-            )
+            ),
+            GestureDetector(child: Text("点击我$value"),onTap: (){
+              setState(() {
+                value++;
+              });
+            },)
           ],
         )));
   }
