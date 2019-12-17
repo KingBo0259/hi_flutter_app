@@ -9,6 +9,8 @@ class DragPage extends StatefulWidget {
 }
 
 class _DragPage extends State<DragPage> {
+  Offset offset = Offset(0, 0);
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -22,7 +24,12 @@ class _DragPage extends State<DragPage> {
             Row(
               children: <Widget>[MyDraggableWidget()],
             ),
-            TouchMoveView(),
+            Text("position,x:${offset.dx.toStringAsFixed(2)}, y:${offset.dy.toStringAsFixed(2)}"),
+            TouchMoveView(callback: (offset){
+              setState(() {
+                this.offset = offset;
+              });
+            },),
             TouchMoveView()
           ],
         ));
