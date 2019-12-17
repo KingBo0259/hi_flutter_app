@@ -11,12 +11,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  var _counter = 1;
+  void _incrementCounter(){
+      setState(() {
+        _counter++;
+      });
   }
 
   Widget createCupertinoBody() {
@@ -26,60 +26,76 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'You have pushed the button this many times:',
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Padding(
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    child: CupertinoButton.filled(
+                        child: Text("flutter 集成 native View"),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "platform_view");
+                        }),
+                  ))
+                ],
               ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.display1,
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Padding(
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    child: CupertinoButton.filled(
+                        child: Text("OneMore"),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "oneMore");
+                        }),
+                  )),
+                ],
               ),
-              CupertinoButton(
-                child: Text("自动+1"),
-                color: Colors.blue,
-                onPressed: _incrementCounter,
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Padding(
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    child: CupertinoButton.filled(
+                        child: Text("FindPictureTemplatePage"),
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, "FindPictureTemplatePage");
+                        }),
+                  ))
+                ],
               ),
-              SizedBox(
-                height: 10,
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: CupertinoButton.filled(
+                            child: Text("HandDrawLine"),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, "HandWritePage");
+                            }),
+                      ))
+                ],
               ),
-              CupertinoButton.filled(
-                  child: Text("flutter 集成 native View"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "platform_view");
-                  }),
-              SizedBox(
-                height: 10,
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: CupertinoButton.filled(
+                            child: Text("Lottie"),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, "myLottie_page");
+                            }),
+                      ))
+                ],
               ),
-              CupertinoButton.filled(
-                  child: Text("OneMore"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "oneMore");
-                  }),
-              SizedBox(
-                height: 10,
-              ),
-              CupertinoButton.filled(
-                  child: Text("FindPictureTemplatePage"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "FindPictureTemplatePage");
-                  }),
-              SizedBox(
-                height: 10,
-              ),
-              CupertinoButton.filled(
-                  child: Text("HandDrawLine"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "HandWritePage");
-                  }),
-              SizedBox(
-                height: 10,
-              ),
-              CupertinoButton.filled(
-                  child: Text("Lottie"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "myLottie_page");
-                  })
+
             ],
           ),
         ));
