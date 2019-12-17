@@ -71,6 +71,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text("HandDrawLine"),
                   onPressed: () {
                     Navigator.pushNamed(context, "HandWritePage");
+                  }),
+              SizedBox(
+                height: 10,
+              ),
+              CupertinoButton.filled(
+                  child: Text("Lottie"),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "myLottie_page");
                   })
             ],
           ),

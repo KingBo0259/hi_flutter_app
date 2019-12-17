@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   flip_card: ^0.4.4
+  flutter_lottie: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +47,7 @@ flutter:
     - images/find_picture_card_back_green.png
     - images/find_picture_card_green.png
     - images/judgement_graph_weight_3.png
+    - json/lottie/compare_weight_lighter_1.json
 
 
 
