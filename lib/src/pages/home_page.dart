@@ -11,12 +11,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final Map<String, String> mapTitle = {
+    "flutter 集成 native View": "platform_view",
+    "OneMore": "oneMore",
+    "FindPictureTemplatePage": "FindPictureTemplatePage",
+    "HandDrawLine": "HandWritePage",
+    "Lottie": "myLottie_page"
+  };
+
+  final List<Map<String, String>> myTitleList = [
+    {"title": "flutter 集成 native View", "router": "platform_view"},
+    {"title": "OneMore", "router": "oneMore"},
+    {"title": "FindPictureTemplatePage", "router": "FindPictureTemplatePage"},
+    {"title": "HandDrawLine", "router": "HandWritePage"},
+    {"title": "Lottie", "router": "myLottie_page"},
+    {"title": "DragPage", "router": "drag_page"}
+  ];
 
   var _counter = 1;
-  void _incrementCounter(){
-      setState(() {
-        _counter++;
-      });
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
   }
 
   Widget createCupertinoBody() {
@@ -26,78 +43,21 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: Center(
           child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: Padding(
-                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    child: CupertinoButton.filled(
-                        child: Text("flutter 集成 native View"),
-                        onPressed: () {
-                          Navigator.pushNamed(context, "platform_view");
-                        }),
-                  ))
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: Padding(
-                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    child: CupertinoButton.filled(
-                        child: Text("OneMore"),
-                        onPressed: () {
-                          Navigator.pushNamed(context, "oneMore");
-                        }),
-                  )),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: Padding(
-                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    child: CupertinoButton.filled(
-                        child: Text("FindPictureTemplatePage"),
-                        onPressed: () {
-                          Navigator.pushNamed(
-                              context, "FindPictureTemplatePage");
-                        }),
-                  ))
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                        child: CupertinoButton.filled(
-                            child: Text("HandDrawLine"),
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context, "HandWritePage");
-                            }),
-                      ))
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                        child: CupertinoButton.filled(
-                            child: Text("Lottie"),
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context, "myLottie_page");
-                            }),
-                      ))
-                ],
-              ),
-
-            ],
-          ),
+              children: myTitleList.map((item) {
+            return Row(
+              children: <Widget>[
+                Expanded(
+                    child: Padding(
+                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  child: CupertinoButton.filled(
+                      child: Text(item["title"]),
+                      onPressed: () {
+                        Navigator.pushNamed(context, item["router"]);
+                      }),
+                ))
+              ],
+            );
+          }).toList()),
         ));
   }
 
