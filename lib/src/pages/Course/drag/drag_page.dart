@@ -11,6 +11,9 @@ class DragPage extends StatefulWidget {
 class _DragPage extends State<DragPage> {
   Offset offset = Offset(0, 0);
 
+  GlobalKey key = GlobalKey();
+
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -19,14 +22,18 @@ class _DragPage extends State<DragPage> {
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Row(
-              children: <Widget>[MyDraggableWidget()],
+              mainAxisSize: MainAxisSize.max,
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: <Widget>[MyDraggableWidget(key: key,)],
             ),
             Text("position,x:${offset.dx.toStringAsFixed(2)}, y:${offset.dy.toStringAsFixed(2)}"),
             TouchMoveView(callback: (offset){
               setState(() {
+                RenderBox box = key.currentContext.findRenderObject();
+
                 this.offset = offset;
               });
             },),
