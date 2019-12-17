@@ -11,13 +11,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final Map<String, String> mapTitle = {
-    "flutter 集成 native View": "platform_view",
-    "OneMore": "oneMore",
-    "FindPictureTemplatePage": "FindPictureTemplatePage",
-    "HandDrawLine": "HandWritePage",
-    "Lottie": "myLottie_page"
-  };
 
   final List<Map<String, String>> myTitleList = [
     {"title": "flutter 集成 native View", "router": "platform_view"},
